@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=b8faa23d3de3465187d1d2ce248c652de512b565">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#151515">
+<meta name="msapplication-navbutton-color" content="#151515">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/gradle-dependencies-check/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>io.github.gregoranders.gradle.dependencies.tooling.model.ConfigurationSpec | Gradle Dependencies Check</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="io.github.gregoranders.gradle.dependencies.tooling.model.ConfigurationSpec" />
+<meta name="author" content="Gregor Anders" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Specification run results" />
+<meta property="og:description" content="Specification run results" />
+<link rel="canonical" href="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.ConfigurationSpec.html" />
+<meta property="og:url" content="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.ConfigurationSpec.html" />
+<meta property="og:site_name" content="Gradle Dependencies Check" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="io.github.gregoranders.gradle.dependencies.tooling.model.ConfigurationSpec" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.ConfigurationSpec.html","author":{"@type":"Person","name":"Gregor Anders"},"headline":"io.github.gregoranders.gradle.dependencies.tooling.model.ConfigurationSpec","description":"Specification run results","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/gradle-dependencies-check/">
+          <h1>Gradle Dependencies Check</h1>
+        </a>
+        <h2>Specification run results</h2>
+
+        <section id="downloads">
+          
+          <a href="https://github.com/gregoranders/gradle-dependencies-check" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <blockquote>
+  <h1 id="as-a-user-i-would-like-to-be-able-to-get-a-custom-model-from-a-gradle-build-to-collect-dependencies">As a user I would like to be able to get a custom <a href="https://github.com/bmuschko/tooling-api-custom-model">model</a> from a <a href="https://gradle.org">Gradle</a> build to collect dependencies.</h1>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total Runs</th>
+      <th>Success Rate</th>
+      <th>Failures</th>
+      <th>Errors</th>
+      <th>Skipped</th>
+      <th>Total time (ms)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3</td>
+      <td>100.0%</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.017 seconds</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="testsubject">TestSubject:</h4>
+<ul>
+  <li><a href="https://github.com/gregoranders/gradle-dependencies-check/blob/main/src/main/java/io/github/gregoranders/gradle/dependencies/tooling/model/api/Configuration.java">io.github.gregoranders.gradle.dependencies.tooling.model.api.Configuration</a></li>
+</ul>
+
+<h4 id="issues">Issues:</h4>
+
+<ul>
+  <li><a href="https://github.com/gregoranders/gradle-dependencies-check/issues/2">#2</a></li>
+</ul>
+
+<h4 id="see">See:</h4>
+
+<ul>
+  <li><a href="https://gradle.org">https://gradle.org</a></li>
+  <li><a href="https://github.com/bmuschko/tooling-api-custom-model">https://github.com/bmuschko/tooling-api-custom-model</a></li>
+  <li><a href="https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html">https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html</a></li>
+  <li><a href="https://github.com/gregoranders/gradle-dependencies-check/blob/main/src/main/java/io/github/gregoranders/gradle/dependencies/tooling/model/api/Configuration.java">io.github.gregoranders.gradle.dependencies.tooling.model.api.Configuration</a></li>
+</ul>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li><a href="#should-contain-expected-dependency">should contain expected dependency</a></li>
+  <li><a href="#should-return-a-set-with-one-dependency">should return a set with one dependency</a></li>
+  <li><a href="#should-return-expected-configuration-name">should return expected configuration name</a></li>
+</ul>
+
+<hr />
+
+<h1 id="should-contain-expected-dependency">should contain expected dependency</h1>
+
+<p>Result: <strong>PASS</strong>
+Time: 0</p>
+
+<ul>
+  <li><strong>Expect</strong> should equal provided dependency</li>
+</ul>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">testSubject</span><span class="o">.</span><span class="na">dependencies</span><span class="o">()[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">dependency</span>
+</code></pre></div></div>
+
+<h1 id="should-return-a-set-with-one-dependency">should return a set with one dependency</h1>
+
+<p>Result: <strong>PASS</strong>
+Time: 0.001 seconds</p>
+
+<ul>
+  <li><strong>Expect</strong> set of dependencies should have one element</li>
+</ul>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">testSubject</span><span class="o">.</span><span class="na">dependencies</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<h1 id="should-return-expected-configuration-name">should return expected configuration name</h1>
+
+<p>Result: <strong>PASS</strong>
+Time: 0</p>
+
+<ul>
+  <li><strong>Expect</strong> name to equal “testConfiguration”</li>
+</ul>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">testSubject</span><span class="o">.</span><span class="na">name</span><span class="o">()</span> <span class="o">==</span> <span class="n">configurationName</span>
+</code></pre></div></div>
+
+
+      </section>
+    </div>
+  </body>
+</html>
