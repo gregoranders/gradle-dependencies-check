@@ -58,12 +58,14 @@ project.modularity.patchModule('gradle-api', "jsr305-3.0.2.jar")
 
 publishing {
   if (System.getenv('CI') == 'true') {
-    maven {
-      name = 'GitHubPackages'
-      url = property('ghpUrl')
-      credentials {
-        username = System.getenv('GITHUB_ACTOR')
-        password = System.getenv('GITHUB_TOKEN')
+    repositories {
+      maven {
+        name = 'GitHubPackages'
+        url = property('ghpUrl')
+        credentials {
+          username = System.getenv('GITHUB_ACTOR')
+          password = System.getenv('GITHUB_TOKEN')
+        }
       }
     }
   }
