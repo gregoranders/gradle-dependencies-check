@@ -9,8 +9,6 @@ env:
   GITHUB_HEAD_REF: ${{ github.head_ref }}
   GITHUB_BASE_REF: ${{ github.base_ref }}
   GITHUB_COMMIT: ${{ github.sha }}
-  PLUGIN_GITHUB_ACTOR: ${{ secrets.PLUGIN_GITHUB_ACTOR }}
-  PLUGIN_GITHUB_TOKEN: ${{ secrets.PLUGIN_GITHUB_TOKEN }}
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -42,12 +40,6 @@ jobs:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Gradle packages
-        uses: actions/cache@v2.1.7
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-          restore-keys: ${{ runner.os }}-gradle
       - name: Verify Gradle Wrapper
         uses: gradle/wrapper-validation-action@v1
       - name: Echo Gradle version
