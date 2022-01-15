@@ -1,0 +1,77 @@
+name: Release CI
+on:
+  push:
+    tags:
+      - 'v*'
+env:
+  CI: true
+  GITHUB_BRANCH: ${{ github.ref }}
+  GITHUB_HEAD_REF: ${{ github.head_ref }}
+  GITHUB_BASE_REF: ${{ github.base_ref }}
+  GITHUB_COMMIT: ${{ github.sha }}
+  PLUGIN_GITHUB_ACTOR: ${{ secrets.PLUGIN_GITHUB_ACTOR }}
+  PLUGIN_GITHUB_TOKEN: ${{ secrets.PLUGIN_GITHUB_TOKEN }}
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macOS-latest, windows-latest ]
+        java: [ '11.0.13' ]
+      fail-fast: false
+    name: ${{ matrix.os }} JDK ${{ matrix.java }}
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up JDK
+        uses: actions/setup-java@v2.5.0
+        with:
+          distribution: 'temurin'
+          cache: 'gradle'
+          java-version: ${{ matrix.java }}
+      - name: Echo JAVA_HOME
+        run: echo $JAVA_HOME
+      - name: Echo JAVA version
+        run: java --version
+      - name: Cache SonarCloud packages
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/cache@v2.1.7
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache Gradle packages
+        uses: actions/cache@v2.1.7
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
+      - name: Verify Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: Echo Gradle version
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: --version
+      - name: Execute clean, check and build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: --info --stacktrace clean check build
+      - name: Sonarcube analyze
+        if: matrix.os == 'ubuntu-latest'
+        uses: gradle/gradle-build-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          arguments: --info --stacktrace sonarqube
+      - name: Publish package
+        if: matrix.os == 'ubuntu-latest'
+        uses: gradle/gradle-build-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_KEY: ${{ secrets.GPG_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        with:
+          arguments: --info --stacktrace publish

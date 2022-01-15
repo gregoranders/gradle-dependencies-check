@@ -1,0 +1,100 @@
+name: Development CI
+on:
+  push:
+    branches:
+      - development
+env:
+  CI: true
+  GITHUB_BRANCH: ${{ github.ref }}
+  GITHUB_HEAD_REF: ${{ github.head_ref }}
+  GITHUB_BASE_REF: ${{ github.base_ref }}
+  GITHUB_COMMIT: ${{ github.sha }}
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macOS-latest, windows-latest ]
+        java: [ '11.0.13' ]
+      fail-fast: false
+    name: ${{ matrix.os }} JDK ${{ matrix.java }}
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up JDK
+        uses: actions/setup-java@v2.5.0
+        with:
+          distribution: 'temurin'
+          cache: 'gradle'
+          java-version: ${{ matrix.java }}
+      - name: Echo JAVA_HOME
+        run: echo $JAVA_HOME
+      - name: Echo JAVA version
+        run: java --version
+      - name: Cache SonarCloud packages
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/cache@v2.1.7
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Verify Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: Echo Gradle version
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: --version
+      - name: Execute clean, check and build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: --info --stacktrace clean check build
+      - name: Sonarcube analyze
+        if: matrix.os == 'ubuntu-latest'
+        uses: gradle/gradle-build-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          arguments: --info --stacktrace sonarqube
+      - name: Upload reports as an artifact
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: reports-jdk${{ matrix.java }}-${{ matrix.os }}
+          path: build/reports
+          retention-days: 2
+      - name: Upload test results as an artifact
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: junit-results-jdk${{ matrix.java }}-${{ matrix.os }}
+          path: build/test-results
+          retention-days: 1
+
+  publish-test-results:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macOS-latest, windows-latest ]
+        java: [ '11.0.13' ]
+      fail-fast: false
+    name: Publish Unit Tests Results ${{ matrix.os }} JDK ${{ matrix.java }}
+    needs: build
+    if: always()
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: junit-results-jdk${{ matrix.java }}-${{ matrix.os }}
+          path: junit-artifact
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        with:
+          check_name: Unit Test Results jdk${{ matrix.java }}-${{ matrix.os }}
+          files: junit-artifact/**/*.xml
