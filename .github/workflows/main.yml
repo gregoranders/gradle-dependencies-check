@@ -35,7 +35,7 @@ jobs:
         run: java --version
       - name: Cache SonarCloud packages
         if: matrix.os == 'ubuntu-latest'
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.0.1
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
@@ -101,7 +101,7 @@ jobs:
           name: gh-pages
           path: gh-pages-artifact
       - name: Get cached gems
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.0.1
         with:
           path: gh-pages-artifact
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
