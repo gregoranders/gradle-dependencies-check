@@ -7,8 +7,9 @@ updates:
       interval: 'weekly'
     labels:
       - 'ci'
+      - 'dependencies'
     commit-message:
-      prefix: 'github-actions'
+      prefix: 'ci(dependencies)'
     assignees:
       - 'gregoranders'
     target-branch: 'development'
@@ -20,7 +21,7 @@ updates:
     labels:
       - 'dependencies'
     commit-message:
-      prefix: 'gradle'
+      prefix: 'build(dependencies)'
     assignees:
       - 'gregoranders'
     target-branch: 'development'
