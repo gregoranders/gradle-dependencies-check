@@ -5,6 +5,7 @@ on:
       - feature/*
 env:
   CI: true
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
   GITHUB_BRANCH: ${{ github.ref }}
   GITHUB_HEAD_REF: ${{ github.head_ref }}
   GITHUB_BASE_REF: ${{ github.base_ref }}
