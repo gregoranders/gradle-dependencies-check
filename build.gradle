@@ -35,14 +35,6 @@ repositories {
   mavenLocal()
 }
 
-test {
-  moduleOptions {
-    runOnClasspath = true
-  }
-  systemProperty 'com.athaydes.spockframework.report.projectName', "${project.group}.${project.name}"
-  systemProperty 'com.athaydes.spockframework.report.projectVersion', "${project.version}"
-}
-
 project.modularity.patchModule('gradle-api', "groovy-${property('groovyVersion')}.jar")
 project.modularity.patchModule('gradle-api', "groovy-ant-${property('groovyVersion')}.jar")
 project.modularity.patchModule('gradle-api', "groovy-astbuilder-${property('groovyVersion')}.jar")
@@ -76,6 +68,37 @@ publishing {
   }
 }
 
+dependencyCheck {
+  analyzers {
+    nodeEnabled=false
+    nodeAudit {
+      skipDevDependencies=true
+    }
+  }
+}
+
+test {
+  moduleOptions {
+    runOnClasspath = true
+  }
+  testLogging {
+    events = [
+      'skipped',
+      'failed',
+    ]
+    exceptionFormat = 'FULL'
+  }
+  systemProperty 'com.athaydes.spockframework.report.projectName', "${project.group}.${project.name}"
+  systemProperty 'com.athaydes.spockframework.report.projectVersion', "${project.version}"
+
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.compilerArgs += [
+    '-Xlint:deprecation',
+  ]
+}
+
 dependencies {
 
   annotationProcessor(
@@ -103,5 +126,27 @@ dependencies {
     [group: 'com.athaydes', name: 'spock-reports', version: property('spockReportsVersion')]
   ) {
     transitive = false
+  }
+}
+
+sonarqube {
+  properties {
+    property 'sonar.host.url', 'https://sonarcloud.io'
+    property 'sonar.projectKey', 'gregoranders_gradle-dependencies-check'
+    property 'sonar.qualitygate.wait', true
+    property 'sonar.links.homepage', 'https://github.com/gregoranders/gradle-dependencies-check'
+    property 'sonar.links.ci', 'https://github.com/gregoranders/gradle-dependencies-check'
+    property 'sonar.links.scm', 'https://github.com/gregoranders/gradle-dependencies-check'
+    property 'sonar.links.issue', 'https://github.com/gregoranders/gradle-dependencies-check/issues'
+    property 'sonar.java.spotbugs.reportPaths', 'build/reports/spotbugs/main/spotbugs.xml'
+    property 'sonar.java.checkstyle.reportPaths', 'build/reports/checkstyle/main.xml'
+    property 'sonar.java.pmd.reportPaths', 'build/reports/pmd/main.xml'
+    property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/test/jacocoTestReport.xml'
+    property 'sonar.dependencyCheck.htmlReportPath', 'build/reports/dependency-check/dependency-check-report.html'
+    property 'sonar.junit.reportPaths', 'build/test-results/test'
+    property 'sonar.java.file.suffixes', '.java'
+    property 'sonar.sourceEncoding', 'UTF-8'
+    property 'sonar.dependencyCheck.securityHotspot', true
+    property 'sonar.dependencyCheck.summarize', true
   }
 }
