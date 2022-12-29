@@ -28,8 +28,8 @@ import spock.lang.Unroll
 
 class FileUtilitiesSpec extends Specification {
 
-    @Unroll
-    def 'removeLeadingPrefixes should return #expectedResult when invoked with #path'() {
+    @Unroll("path: #path - expectedResult: #expectedResult")
+    def 'removeLeadingPrefixes should return expected result when invoked with path'() {
         expect:
             FileUtilities.removeLeadingPrefixes(path) == expectedResult
 
