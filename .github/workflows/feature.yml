@@ -49,7 +49,7 @@ jobs:
       - name: Execute clean, check and build
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: --info --stacktrace clean check build
+          arguments: --info --stacktrace --scan clean check build
       - name: Sonarcube analyze
         if: matrix.os == 'ubuntu-latest'
         uses: gradle/gradle-build-action@v2
