@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=0420ae973c2230cc1d0225b4fe3855d6791e9675">
+    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=5757ebae8d2122d7e63ace5f178a625fe0b83aad">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup theme-color -->
@@ -25,9 +25,9 @@
 <!-- end custom head snippets -->
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec | Gradle Dependencies Check</title>
-<meta name="generator" content="Jekyll v3.9.0" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec" />
 <meta name="author" content="Gregor Anders" />
 <meta property="og:locale" content="en_US" />
@@ -36,10 +36,11 @@
 <link rel="canonical" href="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec.html" />
 <meta property="og:url" content="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec.html" />
 <meta property="og:site_name" content="Gradle Dependencies Check" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec.html","author":{"@type":"Person","name":"Gregor Anders"},"headline":"io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec","description":"Specification run results","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gregor Anders"},"description":"Specification run results","headline":"io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.DependenciesModelBuilderSpec.html"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -85,7 +86,7 @@
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0.199 seconds</td>
+      <td>0.262 seconds</td>
     </tr>
   </tbody>
 </table>
@@ -123,7 +124,7 @@
 <h1 id="should-return-project-model">should return project model</h1>
 
 <p>Result: <strong>PASS</strong>
-Time: 0.080 seconds</p>
+Time: 0.149 seconds</p>
 
 <ul>
   <li><strong>Given</strong> a mocked Project</li>
@@ -296,6 +297,12 @@ Time: 0</p>
   <li><strong>Where</strong></li>
 </ul>
 
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">modelName</span>                                                                    <span class="o">||</span> <span class="n">expectedResult</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Project'</span>       <span class="o">||</span> <span class="kc">true</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Configuration'</span> <span class="o">||</span> <span class="kc">false</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Dependency'</span>    <span class="o">||</span> <span class="kc">false</span>
+</code></pre></div></div>
+
 <table>
   <thead>
     <tr>
@@ -331,6 +338,12 @@ Time: 0</p>
   <li><strong>Where</strong></li>
 </ul>
 
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">modelName</span>                                                                    <span class="o">||</span> <span class="n">expectedResult</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Project'</span>       <span class="o">||</span> <span class="kc">true</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Configuration'</span> <span class="o">||</span> <span class="kc">false</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Dependency'</span>    <span class="o">||</span> <span class="kc">false</span>
+</code></pre></div></div>
+
 <table>
   <thead>
     <tr>
@@ -365,6 +378,12 @@ Time: 0</p>
 <ul>
   <li><strong>Where</strong></li>
 </ul>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">modelName</span>                                                                    <span class="o">||</span> <span class="n">expectedResult</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Project'</span>       <span class="o">||</span> <span class="kc">true</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Configuration'</span> <span class="o">||</span> <span class="kc">false</span>
+<span class="s1">'io.github.gregoranders.gradle.dependencies.tooling.model.api.Dependency'</span>    <span class="o">||</span> <span class="kc">false</span>
+</code></pre></div></div>
 
 <table>
   <thead>

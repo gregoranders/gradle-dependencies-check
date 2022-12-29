@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=0420ae973c2230cc1d0225b4fe3855d6791e9675">
+    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=5757ebae8d2122d7e63ace5f178a625fe0b83aad">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup theme-color -->
@@ -25,9 +25,9 @@
 <!-- end custom head snippets -->
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec | Gradle Dependencies Check</title>
-<meta name="generator" content="Jekyll v3.9.0" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec" />
 <meta name="author" content="Gregor Anders" />
 <meta property="og:locale" content="en_US" />
@@ -36,10 +36,11 @@
 <link rel="canonical" href="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec.html" />
 <meta property="og:url" content="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec.html" />
 <meta property="og:site_name" content="Gradle Dependencies Check" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec.html","author":{"@type":"Person","name":"Gregor Anders"},"headline":"io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec","description":"Specification run results","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gregor Anders"},"description":"Specification run results","headline":"io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.mapper.DependencySetMapperSpec.html"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -84,7 +85,7 @@
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0.006 seconds</td>
+      <td>0.011 seconds</td>
     </tr>
   </tbody>
 </table>
@@ -120,7 +121,7 @@
 <h1 id="should-map-a-gradle-dependency-set-preserving-the-order">should map a gradle dependency set preserving the order</h1>
 
 <p>Result: <strong>PASS</strong>
-Time: 0.002 seconds</p>
+Time: 0.006 seconds</p>
 
 <ul>
   <li><strong>Given</strong> a gradle dependency A</li>
@@ -154,7 +155,7 @@ Time: 0.002 seconds</p>
   <li><strong>Then</strong> following interactions should be executed</li>
 </ul>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">interaction</span> <span class="o">{</span>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            <span class="n">interaction</span> <span class="o">{</span>
                 <span class="mi">1</span> <span class="o">*</span> <span class="n">dependencySet</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span> <span class="o">&gt;&gt;</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">dependencyA</span><span class="o">,</span> <span class="n">dependencyB</span><span class="o">)</span>
 
                 <span class="mi">1</span> <span class="o">*</span> <span class="n">dependencyA</span><span class="o">.</span><span class="na">getGroup</span><span class="o">()</span> <span class="o">&gt;&gt;</span> <span class="s1">'dependencyAGroup'</span>

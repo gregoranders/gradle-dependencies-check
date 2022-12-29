@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=0420ae973c2230cc1d0225b4fe3855d6791e9675">
+    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=5757ebae8d2122d7e63ace5f178a625fe0b83aad">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup theme-color -->
@@ -25,9 +25,9 @@
 <!-- end custom head snippets -->
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec | Gradle Dependencies Check</title>
-<meta name="generator" content="Jekyll v3.9.0" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec" />
 <meta name="author" content="Gregor Anders" />
 <meta property="og:locale" content="en_US" />
@@ -36,10 +36,11 @@
 <link rel="canonical" href="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec.html" />
 <meta property="og:url" content="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec.html" />
 <meta property="og:site_name" content="Gradle Dependencies Check" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec.html","author":{"@type":"Person","name":"Gregor Anders"},"headline":"io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec","description":"Specification run results","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gregor Anders"},"description":"Specification run results","headline":"io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.tooling.model.mapper.ProjectMapperSpec.html"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -84,7 +85,7 @@
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0.008 seconds</td>
+      <td>0.018 seconds</td>
     </tr>
   </tbody>
 </table>
@@ -120,7 +121,7 @@
 <h1 id="should-map-a-gradle-project-of--group-projectgroup-name-projectname-description-projectdescription-version-projectversion-path-projectpath--to--group-projectgroup-name-projectname-description-projectdescription-version-projectversion-path-projectpath">should map a gradle project of { group: ‘projectGroup’ name: ‘projectName’ description: projectDescription version: ‘projectVersion’ path: projectPath } to { group: ‘projectGroup’ name: ‘projectName’ description: ‘projectDescription’ version: ‘projectVersion’ path ‘projectPath’}</h1>
 
 <p>Result: <strong>PASS</strong>
-Time: 0.003 seconds</p>
+Time: 0.007 seconds</p>
 
 <ul>
   <li><strong>Given</strong> a mocked gradle project</li>
@@ -180,6 +181,11 @@ Time: 0.003 seconds</p>
   <li><strong>Where</strong></li>
 </ul>
 
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">group</span>          <span class="o">|</span> <span class="n">name</span>          <span class="o">|</span> <span class="n">description</span>          <span class="o">|</span> <span class="n">version</span>          <span class="o">|</span> <span class="n">path</span>          <span class="o">||</span> <span class="n">expectedGroup</span>  <span class="o">|</span> <span class="n">expectedName</span>  <span class="o">|</span> <span class="n">expectedDescription</span>  <span class="o">|</span> <span class="n">expectedVersion</span>  <span class="o">|</span> <span class="n">expectedPath</span>
+<span class="s1">'projectGroup'</span> <span class="o">|</span> <span class="s1">'projectName'</span> <span class="o">|</span> <span class="s1">'projectDescription'</span> <span class="o">|</span> <span class="s1">'projectVersion'</span> <span class="o">|</span> <span class="s1">'projectPath'</span> <span class="o">||</span> <span class="s1">'projectGroup'</span> <span class="o">|</span> <span class="s1">'projectName'</span> <span class="o">|</span> <span class="s1">'projectDescription'</span> <span class="o">|</span> <span class="s1">'projectVersion'</span> <span class="o">|</span> <span class="s1">'projectPath'</span>
+<span class="s1">'projectGroup'</span> <span class="o">|</span> <span class="s1">'projectName'</span> <span class="o">|</span> <span class="kc">null</span>                 <span class="o">|</span> <span class="s1">'projectVersion'</span> <span class="o">|</span> <span class="s1">'projectPath'</span> <span class="o">||</span> <span class="s1">'projectGroup'</span> <span class="o">|</span> <span class="s1">'projectName'</span> <span class="o">|</span> <span class="s1">''</span>                   <span class="o">|</span> <span class="s1">'projectVersion'</span> <span class="o">|</span> <span class="s1">'projectPath'</span>
+</code></pre></div></div>
+
 <table>
   <thead>
     <tr>
@@ -209,7 +215,7 @@ Time: 0.003 seconds</p>
       <td>projectDescription</td>
       <td>projectVersion</td>
       <td>projectPath</td>
-      <td>0.003 seconds</td>
+      <td>0.007 seconds</td>
       <td>(PASS)</td>
     </tr>
   </tbody>
@@ -277,6 +283,11 @@ Time: 0.001 seconds</p>
 <ul>
   <li><strong>Where</strong></li>
 </ul>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">group</span>          <span class="o">|</span> <span class="n">name</span>          <span class="o">|</span> <span class="n">description</span>          <span class="o">|</span> <span class="n">version</span>          <span class="o">|</span> <span class="n">path</span>          <span class="o">||</span> <span class="n">expectedGroup</span>  <span class="o">|</span> <span class="n">expectedName</span>  <span class="o">|</span> <span class="n">expectedDescription</span>  <span class="o">|</span> <span class="n">expectedVersion</span>  <span class="o">|</span> <span class="n">expectedPath</span>
+<span class="s1">'projectGroup'</span> <span class="o">|</span> <span class="s1">'projectName'</span> <span class="o">|</span> <span class="s1">'projectDescription'</span> <span class="o">|</span> <span class="s1">'projectVersion'</span> <span class="o">|</span> <span class="s1">'projectPath'</span> <span class="o">||</span> <span class="s1">'projectGroup'</span> <span class="o">|</span> <span class="s1">'projectName'</span> <span class="o">|</span> <span class="s1">'projectDescription'</span> <span class="o">|</span> <span class="s1">'projectVersion'</span> <span class="o">|</span> <span class="s1">'projectPath'</span>
+<span class="s1">'projectGroup'</span> <span class="o">|</span> <span class="s1">'projectName'</span> <span class="o">|</span> <span class="kc">null</span>                 <span class="o">|</span> <span class="s1">'projectVersion'</span> <span class="o">|</span> <span class="s1">'projectPath'</span> <span class="o">||</span> <span class="s1">'projectGroup'</span> <span class="o">|</span> <span class="s1">'projectName'</span> <span class="o">|</span> <span class="s1">''</span>                   <span class="o">|</span> <span class="s1">'projectVersion'</span> <span class="o">|</span> <span class="s1">'projectPath'</span>
+</code></pre></div></div>
 
 <table>
   <thead>

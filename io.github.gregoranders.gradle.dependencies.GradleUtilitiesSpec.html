@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=0420ae973c2230cc1d0225b4fe3855d6791e9675">
+    <link rel="stylesheet" href="/gradle-dependencies-check/assets/css/style.css?v=5757ebae8d2122d7e63ace5f178a625fe0b83aad">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup theme-color -->
@@ -25,9 +25,9 @@
 <!-- end custom head snippets -->
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec | Gradle Dependencies Check</title>
-<meta name="generator" content="Jekyll v3.9.0" />
+<meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec" />
 <meta name="author" content="Gregor Anders" />
 <meta property="og:locale" content="en_US" />
@@ -36,10 +36,11 @@
 <link rel="canonical" href="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec.html" />
 <meta property="og:url" content="https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec.html" />
 <meta property="og:site_name" content="Gradle Dependencies Check" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec.html","author":{"@type":"Person","name":"Gregor Anders"},"headline":"io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec","description":"Specification run results","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gregor Anders"},"description":"Specification run results","headline":"io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec","url":"https://gregoranders.github.io/gradle-dependencies-check/io.github.gregoranders.gradle.dependencies.GradleUtilitiesSpec.html"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -85,7 +86,7 @@
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>10.289 seconds</td>
+      <td>12.018 seconds</td>
     </tr>
   </tbody>
 </table>
@@ -122,7 +123,7 @@
 <h1 id="should-throw-an-exception">should throw an exception</h1>
 
 <p>Result: <strong>PASS</strong>
-Time: 4.893 seconds</p>
+Time: 4.344 seconds</p>
 
 <ul>
   <li><strong>Given</strong> an invalid path</li>
@@ -162,7 +163,7 @@ Time: 4.893 seconds</p>
 <h1 id="should-return-a-multi-project-with-dependencies">should return a multi project with dependencies</h1>
 
 <p>Result: <strong>PASS</strong>
-Time: 4.356 seconds</p>
+Time: 6.218 seconds</p>
 
 <ul>
   <li><strong>Given</strong> a path to a multi project with dependencies</li>
@@ -256,7 +257,7 @@ Time: 4.356 seconds</p>
   <li><strong>And</strong> it should have 2 dependencies in the implementation configuration</li>
 </ul>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">project</span><span class="o">.</span><span class="na">subProjects</span><span class="o">()[</span><span class="mi">1</span><span class="o">].</span><span class="na">configurations</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">configuration</span> <span class="o">-&gt;</span> <span class="o">{</span>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            <span class="n">project</span><span class="o">.</span><span class="na">subProjects</span><span class="o">()[</span><span class="mi">1</span><span class="o">].</span><span class="na">configurations</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">configuration</span> <span class="o">-&gt;</span> <span class="o">{</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">configuration</span><span class="o">.</span><span class="na">name</span><span class="o">()</span> <span class="o">==</span> <span class="s1">'implementation'</span><span class="o">)</span> <span class="o">{</span>
                     <span class="k">assert</span> <span class="n">configuration</span><span class="o">.</span><span class="na">dependencies</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">2</span>
 
@@ -284,7 +285,7 @@ Time: 4.356 seconds</p>
   <li><strong>And</strong> it should have 2 dependencies in the implementation configuration</li>
 </ul>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">project</span><span class="o">.</span><span class="na">subProjects</span><span class="o">()[</span><span class="mi">2</span><span class="o">].</span><span class="na">configurations</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">configuration</span> <span class="o">-&gt;</span> <span class="o">{</span>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            <span class="n">project</span><span class="o">.</span><span class="na">subProjects</span><span class="o">()[</span><span class="mi">2</span><span class="o">].</span><span class="na">configurations</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">configuration</span> <span class="o">-&gt;</span> <span class="o">{</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">configuration</span><span class="o">.</span><span class="na">name</span><span class="o">()</span> <span class="o">==</span> <span class="s1">'implementation'</span><span class="o">)</span> <span class="o">{</span>
                     <span class="k">assert</span> <span class="n">configuration</span><span class="o">.</span><span class="na">dependencies</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">2</span>
 
@@ -298,7 +299,7 @@ Time: 4.356 seconds</p>
   <li><strong>And</strong> it should have 1 dependencies in the testImplementation configuration</li>
 </ul>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">project</span><span class="o">.</span><span class="na">subProjects</span><span class="o">()[</span><span class="mi">2</span><span class="o">].</span><span class="na">configurations</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">configuration</span> <span class="o">-&gt;</span> <span class="o">{</span>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            <span class="n">project</span><span class="o">.</span><span class="na">subProjects</span><span class="o">()[</span><span class="mi">2</span><span class="o">].</span><span class="na">configurations</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">configuration</span> <span class="o">-&gt;</span> <span class="o">{</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">configuration</span><span class="o">.</span><span class="na">name</span><span class="o">()</span> <span class="o">==</span> <span class="s1">'testImplementation'</span><span class="o">)</span> <span class="o">{</span>
                     <span class="k">assert</span> <span class="n">configuration</span><span class="o">.</span><span class="na">dependencies</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span>
 
@@ -317,7 +318,7 @@ Time: 4.356 seconds</p>
 <h1 id="should-return-a-multi-project-with-no-dependencies">should return a multi project with no dependencies</h1>
 
 <p>Result: <strong>PASS</strong>
-Time: 0.410 seconds</p>
+Time: 0.580 seconds</p>
 
 <ul>
   <li><strong>Given</strong> a path to a multi project with no dependencies</li>
@@ -429,7 +430,7 @@ Time: 0.410 seconds</p>
 <h1 id="should-return-a-set-of-dependencies-of-a-simple-project-with-dependencies">should return a set of dependencies of a simple project with dependencies</h1>
 
 <p>Result: <strong>PASS</strong>
-Time: 0.304 seconds</p>
+Time: 0.438 seconds</p>
 
 <ul>
   <li><strong>Given</strong> a path to a simple project with no dependencies</li>
@@ -508,7 +509,7 @@ Time: 0.304 seconds</p>
 <h1 id="should-return-an-empty-set-of-dependencies-of-a-simple-project-with-no-dependencies">should return an empty set of dependencies of a simple project with no dependencies</h1>
 
 <p>Result: <strong>PASS</strong>
-Time: 0.243 seconds</p>
+Time: 0.290 seconds</p>
 
 <ul>
   <li><strong>Given</strong> a path to a simple project with no dependencies</li>
