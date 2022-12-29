@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2022 Gregor Anders
+ * Copyright (c) 2022 - present Gregor Anders
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +23,8 @@
  */
 package io.github.gregoranders.gradle.dependencies
 
-
 import io.github.gregoranders.gradle.dependencies.configuration.Configuration
 import io.github.gregoranders.gradle.dependencies.tooling.model.api.Dependency
-import io.github.joke.spockmockable.Mockable
 import org.gradle.tooling.BuildException
 import spock.lang.*
 
@@ -46,7 +44,6 @@ import java.nio.file.Path
 @Issue([
     '2'
 ])
-@Mockable(Configuration)
 class GradleUtilitiesSpec extends Specification {
 
     final Configuration configuration = new Configuration()
@@ -217,7 +214,6 @@ class GradleUtilitiesSpec extends Specification {
         and: 'the cause is of type "BuildException"'
             exception.getCause() instanceof BuildException
     }
-
 
     def assertDependency(Dependency dependency, String group, String name, String version) {
         assert dependency.group() == group

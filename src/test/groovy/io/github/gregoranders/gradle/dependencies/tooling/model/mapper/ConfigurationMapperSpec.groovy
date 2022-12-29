@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2022 Gregor Anders
+ * Copyright (c) 2022 - present Gregor Anders
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,6 @@
  */
 package io.github.gregoranders.gradle.dependencies.tooling.model.mapper
 
-
-import io.github.joke.spockmockable.Mockable
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.DependencySet
 import spock.lang.*
@@ -48,7 +46,6 @@ import java.util.stream.Stream
 @Issue([
     '2'
 ])
-@Mockable(ConfigurationMapper)
 class ConfigurationMapperSpec extends Specification {
 
     def dependencyMapper = new DependencyMapper()
