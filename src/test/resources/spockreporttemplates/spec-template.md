@@ -41,47 +41,50 @@ if (testSubject) {
   }
 }
 
-    def writeTagOrAttachment = { feature ->
-        def tagsByKey = feature.tags.groupBy( { t -> t.key } )
-        tagsByKey.each { key, values ->
-            out << '\n#### ' << key.capitalize() << 's:\n\n'
-            values.each { tag ->
-                out << '* [#' << tag.name << '](' << tag.url << ')\n'
-            }
-        }
-        if ( feature.attachments.size > 0 ) {
-            out << '\n#### ' << 'See:' << '\n\n'
-            feature.attachments.each { value ->
-                if (value.name.contains('src/main')) {
-                  out << '* [' << value.name.replaceAll('.*main\\/java\\/', '').replaceAll('\\/', '.').replaceAll('\\.java$', '') << '](' << value.url << ')\n'
-                } else {
-                  out << '* [' << value.name << '](' << value.url << ')\n'
-                }
-            } 
+def writeTagOrAttachment = { feature ->
+    def tagsByKey = feature.tags.groupBy( { t -> t.key } )
+    tagsByKey.each { key, values ->
+        out << '\n#### ' << key.capitalize() << 's:\n\n'
+        values.each { tag ->
+            out << '* [#' << tag.name << '](' << tag.url << ')\n'
         }
     }
-    def writePendingFeature = { pendingFeature ->
-        if ( pendingFeature ) {
-            out << '\n> Pending Feature\n'
+    if ( feature.attachments ) {
+        out << '\n#### ' << 'See:' << '\n\n'
+        feature.attachments.each { value ->
+          if (value.name.contains('src/main')) {
+            out << '* [' << value.name.replaceAll('.*main\\/java\\/', '').replaceAll('\\/', '.').replaceAll('\\.java$', '') << '](' << value.url << ')\n'
+          } else {
+            out << '* [' << value.name << '](' << value.url << ')\n'
+          }
         }
     }
-    def writeHeaders = { headers ->
-        if ( headers ) {
-            headers.each { h ->
-                out << '> ' << h << '\n'
-            }
-        }
-    }
-    def writeExtraInfo = { extraInfo ->
-        if ( extraInfo ) {
-            extraInfo.each { info ->
-                out << '* ' << info << '\n'
-            }
-        }
-    }
+}
 
-    writeHeaders( utils.specHeaders( data ) )
-    writeTagOrAttachment data.info
+def writePendingFeature = { pendingFeature ->
+    if ( pendingFeature ) {
+        out << '\n> Pending Feature\n'
+    }
+}
+
+def writeHeaders = { headers ->
+    if ( headers ) {
+        headers.each { h ->
+            out << '> ' << h << '\n'
+        }
+    }
+}
+
+def writeExtraInfo = { extraInfo ->
+    if ( extraInfo ) {
+        extraInfo.each { info ->
+            out << '* ' << info << '\n'
+        }
+    }
+}
+
+writeHeaders( utils.specHeaders( data ) )
+writeTagOrAttachment data.info
 %>
 
 ## Features
@@ -94,22 +97,25 @@ features.eachFeature { name, result, blocks, iterations, params ->
 ----------------------------------
 
 <%
-    features.eachFeature { name, result, blocks, iterations, params ->
+features.eachFeature { name, result, blocks, iterations, params ->
 %>
 # $name
 <%
- writePendingFeature( featureMethod.getAnnotation( spock.lang.PendingFeature ) )
- writeTagOrAttachment( delegate )
- if (result != "IGNORED") {
-      if ( utils.isUnrolled( delegate ) ) {
-          writeExtraInfo( utils.nextSpecExtraInfo( data ) )
-      } else {
-          // collapse all iterations
-          (1..iterations.size()).each {
-              writeExtraInfo( utils.nextSpecExtraInfo( data ) )
-          }
-     }
- }
+  writePendingFeature( featureMethod.getAnnotation( spock.lang.PendingFeature ) )
+  
+  def feature = delegate
+  writeTagOrAttachment( feature )
+
+  if (result != "IGNORED") {
+    if ( utils.isUnrolled( feature ) ) {
+      iterations.each { iter ->
+        writeExtraInfo( utils.nextSpecExtraInfo( data, feature, iter.info ) )
+      }
+    } else {
+      writeExtraInfo( utils.nextSpecExtraInfo( data, feature ) )
+    }
+  }
+ 
  def iterationTimes = iterations.collect { it.time ?: 0L }
  def totalTime = fmt.toTimeDuration( iterationTimes.sum() )
 %>

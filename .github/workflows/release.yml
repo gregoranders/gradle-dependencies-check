@@ -15,18 +15,18 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest, macOS-latest, windows-latest ]
-        java: [ '11.0.13' ]
+        java: [ '17' ]
       fail-fast: false
     name: ${{ matrix.os }} JDK ${{ matrix.java }}
     steps:
       - name: Git checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.2.0
         with:
           fetch-depth: 0
       - name: Set up JDK
-        uses: actions/setup-java@v2.5.0
+        uses: actions/setup-java@v3.9.0
         with:
-          distribution: 'temurin'
+          distribution: 'corretto'
           cache: 'gradle'
           java-version: ${{ matrix.java }}
       - name: Echo JAVA_HOME
@@ -35,7 +35,7 @@ jobs:
         run: java --version
       - name: Cache SonarCloud packages
         if: matrix.os == 'ubuntu-latest'
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.2.1
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
@@ -49,7 +49,7 @@ jobs:
       - name: Execute clean, check and build
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: --info --stacktrace clean check build
+          arguments: --info --stacktrace --scan clean check build
       - name: Sonarcube analyze
         if: matrix.os == 'ubuntu-latest'
         uses: gradle/gradle-build-action@v2
