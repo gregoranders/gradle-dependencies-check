@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no -- lint-staged --config ./.lintstagedrc
+npx lint-staged
 CI=false ./gradlew check

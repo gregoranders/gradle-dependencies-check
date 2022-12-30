@@ -16,7 +16,7 @@
     "build": "cross-env CI=false ./gradlew build",
     "lint": "markdownlint --config config/mdlrc *.md",
     "test": "./gradlew test",
-    "prepare": "husky install"
+    "prepare": "is-ci || husky install"
   },
   "lint-staged": {
     "*.md": [
@@ -37,6 +37,7 @@
     "@semantic-release/github": "8.0.7",
     "cross-env": "7.0.3",
     "husky": "8.0.2",
+    "is-ci": "3.0.1",
     "lint-staged": "13.1.0",
     "markdownlint": "0.27.0",
     "markdownlint-cli": "0.32.2",
