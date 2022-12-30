@@ -5,15 +5,15 @@ engines:
   duplication:
     enabled: true
   eslint:
-    enabled: true
+    enabled: false
   markdownlint:
-    enabled: true
+    enabled: false
   metric:
     enabled: true
   remark-lint:
-    enabled: true
+    enabled: false
   stylelint:
-    enabled: true
+    enabled: false
   tslint:
     enabled: false
 exclude_paths:
@@ -21,6 +21,6 @@ exclude_paths:
   - '.vscode/**'
   - 'src/test/**'
   - 'docs/**'
-  - 'CHANGELOG.md'
+  - '*.md'
   - 'config/commitlint.config.js'
-  - 'config/commitlint.config.js'
+  - 'config/conventionalcommit.json'
