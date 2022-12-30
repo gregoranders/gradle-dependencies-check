@@ -1,5 +1,7 @@
 Gradle Dependencies Check
 
+## [1.1.1](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.1.0...v1.1.1) (2022-12-30)
+
 ## [1.1.0](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.0.0...v1.1.0) (2022-12-30)
 
 
