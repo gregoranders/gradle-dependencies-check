@@ -1,6 +1,6 @@
 name: Release CI
 on:
-  create:
+  push:
     tags:
       - 'v*'
 env:
