@@ -17,3 +17,4 @@ indent_size = 4
 
 [*.groovy]
 indent_size = 4
+ij_groovy_label_indent_size = 4

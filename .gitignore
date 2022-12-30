@@ -8,3 +8,9 @@ bin
 
 # Ignore IntelliJ project-specific directory
 .idea
+
+# Ignore node_modules
+node_modules
+
+# Ignore package-lock.json
+package-lock.json
