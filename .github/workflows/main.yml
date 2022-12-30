@@ -189,4 +189,4 @@ jobs:
           GIT_COMMITTER_NAME: ${{ steps.gpg.name }}
           GIT_COMMITTER_EMAIL: ${{ steps.gpg.email }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: env && npx semantic-release
