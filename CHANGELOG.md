@@ -1,5 +1,12 @@
 Gradle Dependencies Check
 
+## [1.3.0](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.2.1...v1.3.0) (2022-12-30)
+
+
+### Features
+
+* :lock: fix security issues ([19df208](https://github.com/gregoranders/gradle-dependencies-check/commit/19df208a1e2d67e4a2ce9bbc33029a33f23ccbcf))
+
 ## [1.2.1](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.2.0...v1.2.1) (2022-12-30)
 
 
