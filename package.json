@@ -4,9 +4,9 @@
   "description": "Gradle Dependencies Check",
   "repository": {
     "type": "git",
-    "url": "git@github.com/gregoranders/gradle-dependencies-check.git"
+    "url": "https://github.com/gregoranders/gradle-dependencies-check.git"
   },
-  "private": true,
+  "private": false,
   "author": "Gregor Anders <gregor.anders@gmail.com>",
   "scripts": {
     "clear": "rimraf ./node_modules ./package-lock.json ./build ./out ./.gradle",
