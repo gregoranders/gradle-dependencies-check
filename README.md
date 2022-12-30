@@ -20,6 +20,8 @@
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=gregoranders_gradle-dependencies-check&metric=reliability_rating)][sonarcloud-url]
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=gregoranders_gradle-dependencies-check&metric=security_rating)][sonarcloud-url]
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9174cf8501e34f40812e8db31c26a8e2)][codacy-url]
+
 [![Main Language][language-image]][code-metric-url]
 [![Languages][languages-image]][code-metric-url]
 [![Code Size][code-size-image]][code-metric-url]
@@ -39,3 +41,4 @@
 [code-size-image]: https://img.shields.io/github/languages/code-size/gregoranders/gradle-dependencies-check
 [repo-size-image]: https://img.shields.io/github/repo-size/gregoranders/gradle-dependencies-check
 [sonarcloud-url]: https://sonarcloud.io/summary/new_code?id=gregoranders_gradle-dependencies-check
+[codacy-url]: https://www.codacy.com/gh/gregoranders/gradle-dependencies-check/dashboard
