@@ -15,7 +15,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, macOS-latest, windows-latest ]
+        os: [ ubuntu-latest ]
         java: [ '17' ]
       fail-fast: false
     name: ${{ matrix.os }} JDK ${{ matrix.java }}
@@ -126,7 +126,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, macOS-latest, windows-latest ]
+        os: [ ubuntu-latest ]
         java: [ '17' ]
       fail-fast: false
     name: Publish Unit Tests Results ${{ matrix.os }} JDK ${{ matrix.java }}
@@ -171,7 +171,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: npm install
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+      - name: NPX
+        run: type -p npx
+      - name: lint-staged
+        run: npx lint-staged --version
+      - name: VERSION
+        run: npx semantic-release --version
+      - name: VERSION
+        run: npx semantic-release --ci --dry-run
+#      - name: Release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: npx semantic-release
