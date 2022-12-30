@@ -1,5 +1,13 @@
 Gradle Dependencies Check
 
+## [1.1.0](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.0.0...v1.1.0) (2022-12-30)
+
+
+### Features
+
+* :technologist: test semantic-release GPG signing ([2e3da12](https://github.com/gregoranders/gradle-dependencies-check/commit/2e3da128034f52f4e1921b8f39c43a6de2f9e55e))
+* :technologist: test semantic-release GPG signing ([2a454bd](https://github.com/gregoranders/gradle-dependencies-check/commit/2a454bdc6d7797be1ce99bd32e43571402d629da))
+
 ## 1.0.0 (2022-12-30)
 
 
