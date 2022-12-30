@@ -5,6 +5,7 @@ on:
       - feature/*
 env:
   CI: true
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
   GITHUB_BRANCH: ${{ github.ref }}
   GITHUB_HEAD_REF: ${{ github.head_ref }}
   GITHUB_BASE_REF: ${{ github.base_ref }}
@@ -35,7 +36,7 @@ jobs:
         run: java --version
       - name: Cache SonarCloud packages
         if: matrix.os == 'ubuntu-latest'
-        uses: actions/cache@v3.2.1
+        uses: actions/cache@v3.2.2
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
@@ -94,7 +95,8 @@ jobs:
           name: junit-results-jdk${{ matrix.java }}-${{ matrix.os }}
           path: junit-artifact
       - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
+        if: always()
         with:
           check_name: Unit Test Results jdk${{ matrix.java }}-${{ matrix.os }}
-          files: junit-artifact/**/*.xml
+          junit_files: junit-artifact/**/*.xml

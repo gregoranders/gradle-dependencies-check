@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Initialize" type="CompoundRunConfigurationType">
+    <toRun name="Build (CI)" type="GradleRunConfiguration" />
+    <toRun name="Install" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -38,7 +38,6 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public final class InitScriptCreator implements AutoCloseable {
 
@@ -123,7 +122,7 @@ public final class InitScriptCreator implements AutoCloseable {
     private List<String> splitStringIntoLines(final String string) {
         return Arrays
             .stream(string.split("\\r?\\n"))
-            .collect(Collectors.toList());
+            .toList();
     }
 
 }

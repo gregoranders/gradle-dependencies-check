@@ -40,7 +40,12 @@ spockReports {
     set 'com.athaydes.spockframework.report.outputDir': 'build/reports/spock'
 }
 
+unroll {
+    includeFeatureNameForIterations false
+}
+
 runner {
+    filterStackTrace false
     optimizeRunOrder true
     parallel {
         enabled true

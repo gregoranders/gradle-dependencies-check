@@ -1,0 +1,5 @@
+node_modules/**
+docs/gh-pages/**
+src/test/resources/spockreporttemplates/**
+CHANGELOG.md
+LICENSE

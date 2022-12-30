@@ -1,0 +1,48 @@
+{
+  "name": "io.github.gregoranders.gradle-dependencies-check",
+  "version": "0.0.1",
+  "description": "Gradle Dependencies Check",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/gregoranders/gradle-dependencies-check.git"
+  },
+  "private": true,
+  "author": "Gregor Anders <gregor.anders@gmail.com>",
+  "scripts": {
+    "clear": "rimraf ./node_modules ./package-lock.json ./build ./out ./.gradle",
+    "prestart": "npm run build",
+    "start": "./gradlew bootRun",
+    "prebuild": "./gradlew clean",
+    "build": "cross-env CI=false ./gradlew build",
+    "lint": "markdownlint --config config/mdlrc *.md",
+    "test": "./gradlew test",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.md": [
+      "markdownlint --config config/mdlrc"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/gregoranders/gradle-dependencies-check/issues"
+  },
+  "homepage": "https://github.com/gregoranders/gradle-dependencies-check",
+  "devDependencies": {
+    "@commitlint/cli": "17.3.0",
+    "@commitlint/config-conventional": "17.3.0",
+    "@conventional-commits/parser": "0.4.1",
+    "@google/semantic-release-replace-plugin": "1.2.0",
+    "@semantic-release/changelog": "6.0.2",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "8.0.7",
+    "cross-env": "7.0.3",
+    "husky": "8.0.2",
+    "lint-staged": "13.1.0",
+    "markdownlint": "0.27.0",
+    "markdownlint-cli": "0.32.2",
+    "npx": "10.2.2",
+    "rimraf": "3.0.2",
+    "semantic-release": "19.0.5",
+    "semantic-release-cli": "5.4.4"
+  }
+}

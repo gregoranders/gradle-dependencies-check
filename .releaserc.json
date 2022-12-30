@@ -1,0 +1,86 @@
+{
+  "branches": [
+    "main"
+  ],
+  "plugins": [
+    ["@semantic-release/commit-analyzer", {
+      "preset": "conventionalcommits",
+      "parserOpts": {
+        "mergePattern": "/^Merge pull request #(\\d+) from (.*)$/",
+        "mergeCorrespondence": ["id", "source"]
+      },
+      "releaseRules": [
+        {"type": "refactor", "release": false},
+        {"type": "fix", "release": "patch"},
+        {"type": "feat", "release": "minor"},
+        {"type": "build", "scope": "dependencies", "release": "patch"},
+        {"type": "chore", "scope": "release", "release": "patch"},
+        {"type": "style", "scope": "release", "release": "patch"},
+        {"scope": "no-release", "release": false}
+      ],
+      "presetConfig": {
+        "types": [
+          {"type": "feat", "section": "Features", "hidden": false},
+          {"type": "fix",  "section": "Bug Fixes", "hidden": false},
+          {"type": "chore", "section": "Chores", "hidden": false},
+          {"type": "docs", "section": "Documentation", "hidden": false},
+          {"type": "style", "section": "Style", "hidden": false},
+          {"type": "refactor", "section": "Refactorings", "hidden": false},
+          {"type": "perf", "section": "Performance Improvements", "hidden": false},
+          {"type": "feat", "section": "Features", "hidden": false},
+          {"type": "test", "section": "Tests", "hidden": false},
+          {"type": "build", "section": "Build", "hidden": false},
+          {"type": "ci", "section": "CI/CD", "hidden": false},
+          {"type": "revert", "section": "Reverts", "hidden": false}
+        ]
+      }
+    }],
+    ["@semantic-release/release-notes-generator", {
+        "preset": "conventionalcommits",
+        "parserOpts": {
+          "mergePattern": "/^Merge pull request #(\\d+) from (.*)$/",
+          "mergeCorrespondence": ["id", "source"]
+        },
+        "writerOpts": {
+          "commitsSort": ["subject", "scope"]
+        }
+      }
+    ],
+    ["@semantic-release/changelog", {
+        "changelogTitle": "Gradle Dependencies Check"
+      }
+    ],
+    [
+      "@google/semantic-release-replace-plugin",
+      {
+        "replacements": [
+          {
+            "files": ["gradle.properties"],
+            "from": "version=.*",
+            "to": "version=${nextRelease.version}",
+            "results": [
+              {
+                "file": "gradle.properties",
+                "hasChanged": true,
+                "numMatches": 1,
+                "numReplacements": 1
+              }
+            ],
+            "countMatches": true
+          }
+        ]
+      }
+    ],
+    ["@semantic-release/npm", {
+      "npmPublish": false
+    }],
+    ["@semantic-release/git", {
+      "message": "chore(release): :bookmark: ${nextRelease.version}\n\n${nextRelease.notes}",
+      "assets": [
+        "CHANGELOG.md",
+        "gradle.properties",
+        "package.json"
+      ]
+    }]
+  ]
+}

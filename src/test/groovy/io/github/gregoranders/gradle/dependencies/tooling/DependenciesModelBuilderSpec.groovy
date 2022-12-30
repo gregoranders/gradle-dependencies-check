@@ -65,8 +65,8 @@ class DependenciesModelBuilderSpec extends Specification {
     @Subject
     def testSubject = new DependenciesModelBuilder(projectMapper)
 
-    @Unroll
-    def "should return #expectedResult when invoked with #modelName as the modelName"() {
+    @Unroll("modelName: #modelName - expectedResult: #expectedResult")
+    def "should return expected result when invoked with model name"() {
         expect: 'should return appropriate result when invoked'
             testSubject.canBuild(modelName) == expectedResult
         where:
