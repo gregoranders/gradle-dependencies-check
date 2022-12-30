@@ -172,7 +172,6 @@ jobs:
           passphrase: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
           git_user_signingkey: true
           git_commit_gpgsign: true
-          git_tag_gpgsign: true
       - name: Setup Node.js
         uses: actions/setup-node@v3.5.1
         with:
