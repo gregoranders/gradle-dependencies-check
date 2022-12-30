@@ -180,6 +180,8 @@ jobs:
         run: npm install --ignore-scripts
       - name: List keys
         run: gpg -K
+      - name: List keys
+        run: cat ~/.gitconfig
       - name: Release
         env:
           HUSKY: 0
