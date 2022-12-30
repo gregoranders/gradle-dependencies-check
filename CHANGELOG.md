@@ -1,5 +1,17 @@
 Gradle Dependencies Check
 
+## [1.2.0](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.1.0...v1.2.0) (2022-12-30)
+
+
+### Features
+
+* :technologist: add Codacy integration ([8db0326](https://github.com/gregoranders/gradle-dependencies-check/commit/8db032660a176d0ae865106f8d4985e29945cabf))
+
+
+### Bug Fixes
+
+* :technologist: test semantic-release GPG signing ([32a489e](https://github.com/gregoranders/gradle-dependencies-check/commit/32a489eae7a79250bc879792a492185acd39b9c5))
+
 ## [1.1.1](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.1.0...v1.1.1) (2022-12-30)
 
 ## [1.1.0](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.0.0...v1.1.0) (2022-12-30)
