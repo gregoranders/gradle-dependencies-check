@@ -172,6 +172,9 @@ jobs:
           passphrase: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
           git_user_signingkey: true
           git_commit_gpgsign: true
+      - name: Update Trust = Trust myself
+        run: |
+          echo -e "trust\n5\ny" | gpg --batch --no-tty --command-fd 0 --edit-key ${{ steps.gpg.outputs.keyid }}
       - name: Setup Node.js
         uses: actions/setup-node@v3.5.1
         with:
@@ -181,7 +184,7 @@ jobs:
       - name: List keys
         run: gpg -K
       - name: List keys
-        run: cat ~/.gitconfig
+        run: cat .git/config
       - name: Release
         env:
           HUSKY: 0
