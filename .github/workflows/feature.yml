@@ -95,7 +95,8 @@ jobs:
           name: junit-results-jdk${{ matrix.java }}-${{ matrix.os }}
           path: junit-artifact
       - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
+        if: always()
         with:
           check_name: Unit Test Results jdk${{ matrix.java }}-${{ matrix.os }}
-          files: junit-artifact/**/*.xml
+          junit_files: junit-artifact/**/*.xml
