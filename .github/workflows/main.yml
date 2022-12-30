@@ -147,3 +147,30 @@ jobs:
         with:
           check_name: Unit Test Results jdk${{ matrix.java }}-${{ matrix.os }}
           files: junit-artifact/**/*.xml
+
+  release:
+    name: Release ${{ matrix.os }} JDK ${{ matrix.java }} NodeJS ${{ matrix.node-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        java: [ '17' ]
+        node-version: [18.x]
+      fail-fast: false
+    needs: build
+    if: always()
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.2.0
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
