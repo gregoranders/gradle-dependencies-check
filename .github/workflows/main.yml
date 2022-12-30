@@ -172,7 +172,6 @@ jobs:
           passphrase: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
           git_user_signingkey: true
           git_commit_gpgsign: true
-          git_tag_gpgsign: true
       - name: Update Trust = Trust myself
         run: |
           echo -e "trust\n5\ny" | gpg --batch --no-tty --command-fd 0 --edit-key ${{ steps.gpg.outputs.keyid }}
@@ -182,16 +181,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: npm install --ignore-scripts
-      - name: List keys
-        run: gpg -K
-      - name: List keys
-        run: cat .git/config
       - name: Release
         env:
           HUSKY: 0
-          GIT_AUTHOR_NAME: ${{ steps.gpg.outputs.name }}
+          GIT_AUTHOR_NAME: Semantic Release Bot
           GIT_AUTHOR_EMAIL: ${{ steps.gpg.outputs.email }}
-          GIT_COMMITTER_NAME: ${{ steps.gpg.outputs.name }}
+          GIT_COMMITTER_NAME: Semantic Release Bot
           GIT_COMMITTER_EMAIL: ${{ steps.gpg.outputs.email }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: env && npx semantic-release
