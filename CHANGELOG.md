@@ -1,5 +1,29 @@
 Gradle Dependencies Check
 
+## [1.4.0](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.3.5...v1.4.0) (2022-12-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* test 123
+
+### Features
+
+* test commit message 1 ([6ac183b](https://github.com/gregoranders/gradle-dependencies-check/commit/6ac183b21fa19d399f548f3f56a52d4698510f36))
+* test commit message 2 ([e19f034](https://github.com/gregoranders/gradle-dependencies-check/commit/e19f034c83f2dbbb2712b2416461d9d9a932be59))
+* test commit message 3 ([a9130ae](https://github.com/gregoranders/gradle-dependencies-check/commit/a9130aea37465a08c5f80821dc76bc0a78248e68))
+
+
+### Bug Fixes
+
+* test commit message ([564a58f](https://github.com/gregoranders/gradle-dependencies-check/commit/564a58f1dfaadb1b3157edf882a49886bede4882))
+* test commit message 1 ([27406b9](https://github.com/gregoranders/gradle-dependencies-check/commit/27406b9e9b6575759194f15fc70b2097eca6e156))
+
+
+### Performance Improvements
+
+* test commit message 1 ([d9b774c](https://github.com/gregoranders/gradle-dependencies-check/commit/d9b774c6e07cdea1186c063fd03a95718e27a30d))
+
 ## [1.3.5](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.3.4...v1.3.5) (2022-12-31)
 
 ## [1.3.4](https://github.com/gregoranders/gradle-dependencies-check/compare/v1.3.3...v1.3.4) (2022-12-31)
