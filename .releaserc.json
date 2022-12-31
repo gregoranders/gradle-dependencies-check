@@ -15,7 +15,7 @@
         {"type": "feat", "release": "minor"},
         {"type": "build", "scope": "dependencies", "release": "patch"},
         {"type": "chore", "scope": "release", "release": "patch"},
-        {"type": "style", "scope": "release", "release": "patch"},
+        {"type": "style", "release": "patch"},
         {"scope": "no-release", "release": false}
       ],
       "presetConfig": {
